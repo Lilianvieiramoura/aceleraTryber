@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import banner from '../assets/banner.svg'
+import Context from '../context/Context';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
 
@@ -7,6 +9,10 @@ const [input, setInput] = useState({
   username: '',
   password: '',
 });
+
+const { onLogin } = useContext(Context);
+
+const navigate = useNavigate();
 
 function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
   // console.log(event.target.name, event.target.value);
@@ -20,6 +26,8 @@ function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
 function handleSubmit(event: React.FormEvent) {
   // console.log(input);
   event.preventDefault();
+  onLogin(input.username);
+  navigate('/todo');
 }
 
   return (

@@ -10,7 +10,7 @@ function App() {
         <Route path="/todo/add" element={<AddTodo />} />
         <Route path="/todo" element={<TodoList />} />
         <Route path="/" element={<Login />} />
-        <Route path="\*" element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
   )
 }
